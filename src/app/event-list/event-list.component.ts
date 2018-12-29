@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from '../shared/event-service.component';
 
 @Component({
   selector: 'event-list',
@@ -7,24 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventListComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private eventService:EventService) { }
+events:any[]
   ngOnInit() {
+  this.getEvents();
   }
-  event1={
-    id:1,
-    name:'Angular Connect',
-    price:599,
-    time:'10:00 AM',
-    imageUrl:'assets/images/angularconnect-sheild.png',
-    location:{
-      address:'15606 NE 40th Street',
-      city:'redmond',
-      country:'USA'
-    }
-   
 
+
+  getEvents()
+  {
+   this.events= this.eventService.getEvents();
+  
   }
+  
   handleeventclick(dataevent)
   {
     console.log("eventreceive","able to catch child event "+dataevent)
