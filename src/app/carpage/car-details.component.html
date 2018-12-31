@@ -1,0 +1,16 @@
+<div>
+        <div class="form-group">
+                <select class="form-control" (change)="onMakeChange($event.target.value)" >
+                        <option value=""></option>
+                   
+                    <option *ngFor="let c of carDetails" value="{{c.id}}">{{c.car}}</option>
+                
+                </select>
+            </div>
+    <div>
+        <select class="form-control">
+            <option *ngFor="let m of models">{{m.variant}}</option>
+           
+        </select>
+    </div>
+</div>
