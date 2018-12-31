@@ -4,9 +4,9 @@
 
 </h1>
 <hr>
-<div class="row">
+<div class="row" >
   <div class="col-md-6"*ngFor="let event of events">
-  <app-event-thumbnail #thumbnail [event]="event"   (eventClick)="handleeventclick($event)">
+  <app-event-thumbnail #thumbnail [event]="event"   (click)="handleeventclick(event.name)">
 
   </app-event-thumbnail>
   

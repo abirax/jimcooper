@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../shared/event-service.component';
+import { ToasterService } from '../common/toaster.service';
 
 @Component({
   selector: 'event-list',
@@ -8,22 +9,22 @@ import { EventService } from '../shared/event-service.component';
 })
 export class EventListComponent implements OnInit {
 
-  constructor(private eventService:EventService) { }
-events:any[]
+  constructor(private eventService: EventService,private toasterService:ToasterService) { }
+  events: any[]
   ngOnInit() {
-  this.getEvents();
+    this.getEvents();
   }
 
 
-  getEvents()
-  {
-   this.events= this.eventService.getEvents();
-  
+  getEvents() {
+    this.events = this.eventService.getEvents();
+
   }
-  
-  handleeventclick(dataevent)
-  {
-    console.log("eventreceive","able to catch child event "+dataevent)
-    
+
+  handleeventclick(dataevent) {
+    console.log("eventreceive", "able to catch child event " + dataevent);
+    this.toasterService.displaySuccessToast(dataevent);
+    console.log("aftertoaster");
+
   }
 }
