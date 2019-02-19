@@ -9,6 +9,7 @@ export class CarDetailsComponent implements OnInit {
     ngOnInit(): void {
 
     }
+    features = ["AirBag","ABS","MoonRoof","LaneAssit"];
 
     // cardetails: any[];
     carDetails = [

@@ -1,4 +1,5 @@
-<div>
+<H1>New car</H1>
+<div margin="200px">
         <div class="form-group">
                 <select class="form-control" (change)="onMakeChange($event.target.value)" >
                         <option value=""></option>
@@ -7,10 +8,14 @@
                 
                 </select>
             </div>
-    <div>
+    <div class="form-group">
         <select class="form-control">
             <option *ngFor="let m of models">{{m.variant}}</option>
            
         </select>
     </div>
+</div>
+<div *ngFor="let f of features" class="form-check">
+    <input class="form-check-input" id="{{f}}" type="checkbox" >
+    <label class="form-check-label" for="{{f}}">{{f}}</label>
 </div>
